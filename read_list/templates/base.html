@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+h1 {
+text-align: center;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+
+.container
+{
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#add_mentor {
+	display: block;
+	width: 100%;
+}
+table 
+{
+	margin: 20px;
+
+}
+
+</style>
+</head>
+<h1>Techstars Challenge</h1>
+<form action="/" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			Select .csv list to upload: if no file is selected default Techstars Challenge - Source Data.csv will be used
+		<br>
+		<input type="file" name="file">
+		<input type="submit" value="Upload" name="submit">
+</form>
+<hr>
+<body>
+<div class = "container">
+{% for weekday in weekdays %}
+<table class="display">
+<thead>
+	<th> Time </th>
+	<th> {{ weekday }} </th>
+</thead>
+<tbody>
+{% for key, value in schedule.items %}
+{% if weekday  in key %}
+	<tr>
+		<td>{{ key }}</td>
+		<td>
+			{% for match in value %}
+			<div class="card">
+				<div class="card-body bg-success text-white">
+					{{ match }}
+				</div>
+			</div>
+			{% endfor %}
+		</td>
+	</tr>
+{% endif %}
+{% endfor %}
+</tbody>
+</table>
+{% endfor %}
+</div>
+<hr>
+<div id ="add_mentor">
+{% if uncomplete %}
+	<h1>Number of unbooked mentors: {{ uncomplete|length }}</h1>
+	<form name=action="/" method="post">
+			{% csrf_token %}
+		<label for="mentors">Book mentor:</alabel>
+	<select name="mentor_name">
+		{% for mentor in uncomplete %}
+			<option value="{{ mentor.name }}">{{ mentor.name }} </option>
+		{% endfor %}
+	</select>
+		<br>
+	<select name="day">
+		{% for day in weekdays%}
+			<option value="{{ day }}">{{ day }} </option>
+		{% endfor %}
+	</select>
+		<br>
+		<input type="radio" id="am" name="time" value="am" checked="checked">
+		<label for="am">AM</label><br>
+		<input type="radio" id="pm" name="time" value="pm">
+		<label for="pm">PM</label><br>
+		<input type="submit" value="BOOK">
+	</form>
+
+</select>
+{% else %}
+	<h1>Everything in order.</h1>
+{% endif %}
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstap.mn.jintegrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+<script>
+$(document).ready( function () {
+		$('table.display').DataTable({
+  "columns": [
+    { "type": "html-num" },
+		null,
+		],
+        "scrollY":        "400px",
+        "scrollCollapse": true,
+        "paging":         false
+		});
+} );
+
+</script>
+<body/>
