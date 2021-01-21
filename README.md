@@ -33,11 +33,11 @@ If we have to schedule in a calendar, what would be the basic logic to do it? th
 
  1. We generate the time lapses
  2. We scan for mentor collapses
-	 3. If the mentor we want to input is not in the time-lapse, we continue.
-	 4. If the mentor is already on the time slot we increase the offset into the next time slot
+  2.A. If the mentor we want to input is not in the time-lapse, we continue.
+  2.B. If the mentor is already on the time slot we increase the offset into the next time slot
  3. We scan for company collapses
-	 4. If the company is not there we match the company and the mentor together
-	 5. If the company is already there we search for another company with that specific mentor that can be put in place
+  3.A. If the company is not there we match the company and the mentor together
+  3.B. If the company is already there we search for another company with that specific mentor that can be put in place
 
 Finally, if we can assign all the companies we know that every match has been correctly applied, there may be algorithms with better time and spatial complexity, but as the input contains (75 mentors * 10 companies) the algorithm will perform quickly.
 
@@ -52,14 +52,19 @@ Considere that we have to match this 3 mentors with these 5 companies:
 |Nick Hofmeister  | Undefined | Undefined| Avengers Inc | Pied Piper|
 
  1. Let's create our schedule template for Monday morning:
+ 
  ![Schedule template](/res/schedule_template.png)
 	
  2. Add a space call [Break time] for mentors with less than 6 companies
+ 
   ![Schedule braks](/res/schedule_breaks.png)
  3. Start by adding the first mentor in a way that he doesn't manage two companies at the same time
+ 
  ![Schedule braks](/res/schedule_1mentor.png)
  4. Add the second mentor, as we can see Avengers is already at 8:00 A.M so what we do is rotate in the list of companies to the next available, that would be Pied Piper, and then we continue with the normal list.
+ 
  ![Schedule breaks](/res/schedule_2mentors.png)
+ 
  5. Let's suppose that we want to book Nick into the Monday morning group, as we notice both companies are in the time slot of the 8:00 A.M, so we have to search in the next available slot, that would be 9:20 A.M
  
  ![Schedule breaks](/res/schedule_3mentors.png)
