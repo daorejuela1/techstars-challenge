@@ -60,7 +60,8 @@ Considere that we have to match this 3 mentors with these 5 companies:
  ![Schedule braks](/res/schedule_1mentor.png)
  4. Add the second mentor, as we can see Avengers is already at 8:00 A.M so what we do is rotate in the list of companies to the next available, that would be Pied Piper, and then we continue with the normal list.
  ![Schedule breaks](/res/schedule_2mentors.png)
- 5. Let's suppose that we want to book Nick into the Monday morning group, as we notice both companies are in the time slot of the 8:00 A.M, so we have to search in the next available slot, that would be 8:40 A.M
+ 5. Let's suppose that we want to book Nick into the Monday morning group, as we notice both companies are in the time slot of the 8:00 A.M, so we have to search in the next available slot, that would be 9:20 A.M
+ 
  ![Schedule breaks](/res/schedule_3mentors.png)
 
 By applying this logic the software automatically organize mentors with companies 1:1.
