@@ -45,7 +45,7 @@ Having in mind that we know that every session is going to have **20 minutes** w
 
 Considere that we have to match this 3 mentors with these 5 companies:
 
-| Name | Day |AM/PM | Company| Company2|Company2|
+| Name | Day |AM/PM | Company| Company2|Company3|
 |--|--|--|--|--|--|
 |Aaron Schram  | Monday | AM | Avengers Inc | Pied Piper |SHIELD|
 |Jackson Carson  | Monday | AM | Avengers Inc | Pied Piper |Justice League|
@@ -75,14 +75,14 @@ Pep8 ☞ [![Betty](https://badgen.net/badge/Python3/pep8/green?icon=github)](htt
 
 ## Loading example.csv
 <p style="font-size:25px; font-weight:bold"> 
-<img style="display: inline-block;" src="/res/simple_commands.gif">
+<img style="display: inline-block;" src="/res/example.gif">
 </p>
 
 --------------
 
 ## Loading default .csv
 <p style="font-size:25px; font-weight:bold">
-<img style="display: inline-block;" src="/res/pipelines.gif">
+<img style="display: inline-block;" src="/res/default.gif">
 </p>
 
 ---
