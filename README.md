@@ -32,12 +32,18 @@ This software is a 3-day challenge created to grasp the rhythm of creating solut
 If we have to schedule in a calendar, what would be the basic logic to do it? this is the step by step:
 
  1. We generate the time lapses
+ 
  2. We scan for mentor collapses
-  2.A. If the mentor we want to input is not in the time-lapse, we continue.
-  2.B. If the mentor is already on the time slot we increase the offset into the next time slot
+ 
+ 	2.A. If the mentor we want to input is not in the time-lapse, we continue.
+ 
+ 	2.B. If the mentor is already on the time slot we increase the offset into the next time slot
+ 
  3. We scan for company collapses
-  3.A. If the company is not there we match the company and the mentor together
-  3.B. If the company is already there we search for another company with that specific mentor that can be put in place
+ 
+ 	3.A. If the company is not there we match the company and the mentor together
+ 
+ 	3.B. If the company is already there we search for another company with that specific mentor that can be put in place
 
 Finally, if we can assign all the companies we know that every match has been correctly applied, there may be algorithms with better time and spatial complexity, but as the input contains (75 mentors * 10 companies) the algorithm will perform quickly.
 
